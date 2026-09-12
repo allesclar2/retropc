@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Computer Parts</title>
     <link rel="stylesheet" href="style.css">
-
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+    </script>
 
 
 
 </head>
+
 <body>
 <header>
     <h1>Retro Computers</h1>
@@ -84,9 +87,38 @@
         <p>A popular processor from the late 1990s.</p>
     </article>
 
+    <article>
+    <h3>AMD Athlon XP</h3>
+    <p>A popular processor from the early 2000s.</p>
+
+    <a href="#" id="openModel" class="model-link">
+        View 3D Model
+    </a>
+</article>
 
 
         </div>
+
+        <!-- 3D MODEL - appears underneath the featured parts image -->
+    <div id="modelViewer" class="model-viewer-container">
+
+        <button id="closeModel" class="model-close">
+            Close 3D Model
+        </button>
+
+<model-viewer
+    src="amdathlonxp.glb"
+    alt="AMD Athlon XP 3D model"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1"
+    loading="eager"
+    reveal="auto"
+    style="width: 100%; height: 100%; background: #eeeeee;">
+</model-viewer>
+
+    </div>
     </section>
 
 
@@ -103,5 +135,27 @@
   <script type="text/javascript" src="https://counter.websiteout.com/js/7/3/0/0"></script>
 </footer>
     
+<script>
+    const viewer = document.getElementById("modelViewer");
+    const openModel = document.getElementById("openModel");
+    const closeModel = document.getElementById("closeModel");
+
+    openModel.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        viewer.style.display = "block";
+
+        // Scroll down to the 3D model
+        viewer.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+
+    closeModel.addEventListener("click", function() {
+        viewer.style.display = "none";
+    });
+</script>
+
 </body>
 </html>
