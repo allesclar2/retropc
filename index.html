@@ -69,32 +69,38 @@
         <div class="parts">
     
 
-    <article>
-        <img src="voodoo.jpg" alt="3dfx Voodoo graphics card">
-        <h3>3dfx Voodoo</h3>
-        <p>A legendary graphics card from the 1990s.</p>
-    </article>
+<article>
+    <img src="voodoo.jpg" alt="3dfx Voodoo graphics card">
+    <h3>3dfx Voodoo</h3>
+    <p>A legendary graphics card from the 1990s.</p>
 
-    <article>
-        <img src="soundblaster.jpg" alt="Sound Blaster 16 sound card">
-        <h3>Sound Blaster 16</h3>
-        <p>A popular sound card from the 1990s.</p>
-    </article>
-
-    <article>
-        <img src="pentium.jpg" alt="Intel Pentium III processor">
-        <h3>Intel Pentium III</h3>
-        <p>A popular processor from the late 1990s.</p>
-    </article>
-
-    <article>
-    <h3>AMD Athlon XP</h3>
-    <p>A popular processor from the early 2000s.</p>
-
-    <a href="#" id="openModel" class="model-link">
+    <a href="#" class="model-link" data-model="voodoo.glb">
         View 3D Model
     </a>
 </article>
+
+<article>
+    <img src="motherboard.jpg" alt="Motherboard">
+    <h3>Motherboard</h3>
+    <p>A classic computer motherboard from the 1990s.</p>
+
+    <a href="#" class="model-link" data-model="motherboard.glb">
+        View 3D Model
+    </a>
+</article>
+
+<article>
+    <img src="amdathlon3200.jpg" alt="AMD Athlon 3200+ processor">
+    <h3>AMD Athlon 3200+</h3>
+    <p>A popular processor from the early 2000s.</p>
+
+    <a href="#" class="model-link" data-model="amdathlonxp.glb">
+        View 3D Model
+    </a>
+</article>
+
+
+
 
 
         </div>
@@ -107,8 +113,8 @@
         </button>
 
 <model-viewer
-    src="./amdathlonxp.glb"
-    alt="AMD Athlon XP 3D model"
+    id="model3D"
+    alt="3D computer component"
     camera-controls
     auto-rotate
     shadow-intensity="1"
@@ -137,17 +143,24 @@
     
 <script>
     const viewer = document.getElementById("modelViewer");
-    const openModel = document.getElementById("openModel");
+    const model3D = document.getElementById("model3D");
     const closeModel = document.getElementById("closeModel");
+    const modelLinks = document.querySelectorAll(".model-link");
 
-    openModel.addEventListener("click", function(event) {
-        event.preventDefault();
+    modelLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
 
-        viewer.classList.add("show");
+            const modelFile = link.getAttribute("data-model");
 
-        viewer.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+            model3D.src = "./" + modelFile;
+
+            viewer.classList.add("show");
+
+            viewer.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         });
     });
 
@@ -155,6 +168,7 @@
         viewer.classList.remove("show");
     });
 </script>
+
 
 </body>
 </html>
