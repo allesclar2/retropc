@@ -143,7 +143,7 @@
     openModel.addEventListener("click", function(event) {
         event.preventDefault();
 
-        viewer.style.display = "block";
+        viewer.classList.add("show");
 
         viewer.scrollIntoView({
             behavior: "smooth",
@@ -152,7 +152,7 @@
     });
 
     closeModel.addEventListener("click", function() {
-        viewer.style.display = "none";
+        viewer.classList.remove("show");
     });
 </script>
 
