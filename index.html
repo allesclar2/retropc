@@ -136,14 +136,23 @@
 </footer>
     
 <script>
-    document.getElementById("openModel").addEventListener("click", function(event) {
+    const viewer = document.getElementById("modelViewer");
+    const openModel = document.getElementById("openModel");
+    const closeModel = document.getElementById("closeModel");
+
+    openModel.addEventListener("click", function(event) {
         event.preventDefault();
 
-        document.getElementById("modelViewer").style.display = "block";
+        viewer.style.display = "block";
+
+        viewer.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     });
 
-    document.getElementById("closeModel").addEventListener("click", function() {
-        document.getElementById("modelViewer").style.display = "none";
+    closeModel.addEventListener("click", function() {
+        viewer.style.display = "none";
     });
 </script>
 
