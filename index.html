@@ -136,24 +136,14 @@
 </footer>
     
 <script>
-    const viewer = document.getElementById("modelViewer");
-    const openModel = document.getElementById("openModel");
-    const closeModel = document.getElementById("closeModel");
-
-    openModel.addEventListener("click", function(event) {
+    document.getElementById("openModel").addEventListener("click", function(event) {
         event.preventDefault();
 
-        viewer.style.display = "block";
-
-        // Scroll down to the 3D model
-        viewer.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        document.getElementById("modelViewer").style.display = "block";
     });
 
-    closeModel.addEventListener("click", function() {
-        viewer.style.display = "none";
+    document.getElementById("closeModel").addEventListener("click", function() {
+        document.getElementById("modelViewer").style.display = "none";
     });
 </script>
 

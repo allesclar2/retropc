@@ -224,7 +224,7 @@ main h2 {
 /* 3D Viewer */
 
 .model-viewer-container {
-    display: none;
+    display: block;
 
     width: 100%;
     height: 600px;
