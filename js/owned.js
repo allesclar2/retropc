@@ -405,7 +405,7 @@ sound: {
             name: "Windows XP Professional x64",
             released: "2005",
             image: "images/windowsxp64.jpg",
-            url: ""
+            url: "https://en.wikipedia.org/wiki/Windows_XP"
         }
     }
 ];
