@@ -80,7 +80,7 @@ const owned = [
             Interface: "PCI",
             RamSize: "16MB",
             url: "https://theretroweb.com/expansioncards/s/3dfx-voodoo-3-3000-pci-sdram",
-            image: "images/Voodoo 3.jpg"
+            image: "images/voodoo 3.jpg"
         },
 
         sound: {
